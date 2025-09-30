@@ -12,6 +12,10 @@ load_dotenv()
 
 app = FastAPI()
 
+origins = [
+    "https://partheepan.netlify.app"
+]
+
 # CORS configuration
 app.add_middleware(
     CORSMiddleware,
