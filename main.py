@@ -36,7 +36,7 @@ def send_email_notification(contact_data):
         sender_email = "partheepan1505@gmail.com"
         
         # Use environment variable for password (SECURITY)
-        password = os.getenv("EMAIL_PASSWORD", "wdrw wxau idxj okrz")  # Fallback for testing
+        password = os.getenv("EMAIL_PASSWORD", "dznu zivh zhix keiy")  # Fallback for testing
         
         # You should receive notifications at your own email
         receiver_email = "partheepan1505@gmail.com"  # Change this if you want notifications elsewhere
