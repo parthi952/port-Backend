@@ -10,13 +10,13 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
-app = FastAPI()
+app = FastAPI(docs_url=None,redoc_url=None,openapi_url=None)
 
 
 # CORS configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://vocal-sfogliatella-f03e7d.netlify.app"],
     allow_credentials=True,
 
     allow_methods=["*"],
@@ -35,13 +35,13 @@ def send_email_notification(contact_data):
     try:
         smtp_server = "smtp.gmail.com"
         smtp_port = 587
-        sender_email = "partheepan1505@gmail.com"
+        sender_email = os.getenv("EMAIL")
         
         # Use environment variable for password (SECURITY)
-        password = os.getenv("EMAIL_PASSWORD", "dznu zivh zhix keiy")  # Fallback for testing
+        password = os.getenv("EMAIL_PASSWORD")  # Fallback for testing
         
         # You should receive notifications at your own email
-        receiver_email = "partheepan1505@gmail.com"  # Change this if you want notifications elsewhere
+        receiver_email = os.getenv("EMAIL") # Change this if you want notifications elsewhere
 
         # Create message
         message = MIMEMultipart()
@@ -83,7 +83,7 @@ def send_email_notification(contact_data):
 @app.get("/contact")
 async def get_contact():
     return {
-        "email": "partheepan1505@gmail.com", 
+        "email": "paxxxxx05@gmail.com", 
         "phone": "+91 YOUR_PHONE",  # Add your actual phone number
         "message": "Feel free to contact me"
     }
